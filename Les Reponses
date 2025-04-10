@@ -1,0 +1,39 @@
++Commande utilisée pour lancer en arrière-plan : 
+-docker-compose up -d --build.
+
++Pourquoi le mode détaché (-d) est utile :
+-Il permet de continuer à utiliser le terminal pendant que les services tournent en arrière-plan.
+-Idéal pour les environnements de développement ou production.
+
++Que renvoie docker-compose ps ? :
+-Liste les conteneurs gérés par Docker Compose.
+-Affiche le nom du service, l'état, les ports exposés...
+
++Quelle est la commande pour afficher les logs :
+-docker-compose logs.
+-afficher les logs pour vérifier que tout démarre bien.
+-Les logs en temps réel permettent de surveiller en continu le comportement de l'app.
+
++docker-compose up -d --build backend : 
+-en redémarrer un seul service pour gain de temps et ressources.
+-Le frontend reste actif il va re-fetcher le message sans être redémarré.
+
++Pourquoi un volume 
+-Les fichiers/logs persistent même après suppression du conteneur.
+-Utile pour déboguer ou garder une trace longue duré.
+
++Pourquoi REACT_APP_ ?
+-C'est obligatoire pour que Create React App les expose à l'app au moment du build.
+
++docker-compose config Utilité :
+-la configuration "résolue" : ports, volumes, env vars, réseaux…
+-debug ou comprendre les valeurs implicites par défaut.
+
+docker-compose down --rmi all --volumes:
+--rmi all : supprime toutes les images générées.
+--volumes : supprime les volumes (logs, data…).
+-Pratique quand tu veux repartir de zéro.
+
+restart: always :
+Le conteneur redémarre automatiquement après un plantage ou un reboot système.
+Utile en production pour assurer un service toujours disponible.
